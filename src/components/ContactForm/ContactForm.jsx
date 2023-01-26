@@ -11,7 +11,12 @@ class ContactForm extends Component {
   };
   render() {
     return (
-      <form>
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          this.props.nameList(this.state.name);
+        }}
+      >
         <label>
           Name:{' '}
           <input
@@ -30,14 +35,7 @@ class ContactForm extends Component {
             onChange={this.inputChange}
           />
         </label>
-        <button
-          type="button"
-          onClick={() => {
-            this.props.nameList(this.state.name);
-          }}
-        >
-          Add contacts
-        </button>
+        <button type="button">Add contacts</button>
       </form>
     );
   }
