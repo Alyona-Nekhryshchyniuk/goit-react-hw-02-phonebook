@@ -10,33 +10,24 @@ class App extends Component {
     contacts: [{ name: '', id: nanoid() }],
     filter: '',
   };
-  contactsGenerate = contacts => {
-    return (
-      <ul>
-        {contacts.map(({ name, id }) => {
-          if (name) {
-            return <li key={id}>{name}</li>;
-          }
-        })}
-      </ul>
-    );
-  };
-  nameList = name => {
-    this.setState(prevState => {
-      prevState.contacts.push({ name, id: nanoid() });
-    });
-    this.contactsGenerate(this.state.contacts);
+
+  // getNumber = number => {
+  //   return number;
+  // };
+
+  addContact = ({ name, number }) => {
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, { name, id: nanoid() }],
+    }));
+    console.log(number);
   };
 
   render() {
     return (
       <>
         <h1>Phonebook</h1>
-        <ContactForm nameList={this.nameList} />
-        <ContactList
-          contacts={this.state.contacts}
-          contactsGenerate={this.contactsGenerate}
-        />
+        <ContactForm addContact={this.addContact} />
+        <ContactList contacts={this.state.contacts} />
       </>
     );
   }
