@@ -1,10 +1,16 @@
 const ContactList = ({ contacts }) => {
   return (
     <>
-      <h2>Contacts</h2>
       <ul>
-        {contacts.map(({ name, id }) => {
-          return name && <li key={id}> {name}</li>;
+        {contacts.map(({ name, id, number }) => {
+          return (
+            name && (
+              <li key={id}>
+                {' '}
+                {name}: {number}
+              </li>
+            )
+          );
         })}
       </ul>
     </>
