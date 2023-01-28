@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
-import ContactForm from './ContactForm/ContactForm';
-import Filter from './Filter/Filter';
-import ContactList from './ContactList/ContactList';
+import ContactForm from './ContactForm';
+import Filter from './Filter';
+import ContactList from './ContactList';
 
 class App extends Component {
   state = {
@@ -29,18 +29,19 @@ class App extends Component {
   };
 
   render() {
+    const { addContact, updateFilterInState, deleteContact } = this;
     const { filter, contacts } = this.state;
     const loweredFilter = filter.toLowerCase();
 
     return (
       <>
         <h1>Phonebook</h1>
-        <ContactForm addContact={this.addContact} />
+        <ContactForm addContact={addContact} />
 
         <h1>Contacts</h1>
-        <Filter onChange={this.updateFilterInState} value={filter} />
+        <Filter onChange={updateFilterInState} value={filter} />
         <ContactList
-          deleteContact={this.deleteContact}
+          deleteContact={deleteContact}
           contacts={contacts.filter(({ name }) =>
             name.toLowerCase().includes(loweredFilter)
           )}

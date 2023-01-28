@@ -1,26 +1,38 @@
+import PropTypes from 'prop-types';
+import { Button } from '../Button.styled';
+import { List, ListItem } from './List.styled';
+import { MdOutlineContactPhone } from 'react-icons/md';
+
 const ContactList = ({ contacts, deleteContact }) => {
   return (
     <>
-      <ul>
-        {contacts.map(({ name, id, number }, ind) => {
+      <List icon={<MdOutlineContactPhone />}>
+        {contacts.map(({ name, id, number }) => {
           return (
             name && (
-              <li key={id}>
+              <ListItem key={id}>
                 {' '}
                 {name}: {number}
-                <button
+                <Button
                   onClick={() => {
                     deleteContact(id);
                   }}
                 >
                   Delete
-                </button>
-              </li>
+                </Button>
+              </ListItem>
             )
           );
         })}
-      </ul>
+      </List>
     </>
   );
+};
+ContactList.defaultProps = {
+  contacts: [],
+};
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+  deleteContact: PropTypes.func,
 };
 export default ContactList;

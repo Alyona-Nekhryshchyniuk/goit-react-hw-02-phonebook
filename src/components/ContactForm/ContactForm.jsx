@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Form } from './Form.styled';
+import { Button } from '../Button.styled';
+import { Input } from '../Input.styled';
+import { Label } from './Label.styled';
 
 class ContactForm extends Component {
+  static propTypes = {
+    addContact: PropTypes.func,
+  };
+
   state = {
     name: '',
     number: '',
@@ -11,16 +20,16 @@ class ContactForm extends Component {
   };
   render() {
     return (
-      <form
+      <Form
         onSubmit={e => {
           e.preventDefault();
           this.props.addContact(this.state);
           this.setState({ name: '', number: '' });
         }}
       >
-        <label>
+        <Label>
           Name:{' '}
-          <input
+          <Input
             type="text"
             name="name"
             value={this.state.name}
@@ -29,10 +38,10 @@ class ContactForm extends Component {
             required
             onChange={this.inputChange}
           />
-        </label>
-        <label>
+        </Label>
+        <Label>
           Number:{' '}
-          <input
+          <Input
             type="tel"
             name="number"
             value={this.state.number}
@@ -41,10 +50,11 @@ class ContactForm extends Component {
             required
             onChange={this.inputChange}
           />
-        </label>
-        <button type="submit">Add contacts</button>
-      </form>
+        </Label>
+        <Button type="submit">Add contacts</Button>
+      </Form>
     );
   }
 }
+
 export default ContactForm;
