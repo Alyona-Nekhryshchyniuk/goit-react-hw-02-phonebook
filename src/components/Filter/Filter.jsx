@@ -1,11 +1,14 @@
 const Filter = ({ value, onChange }) => {
   return (
-    <input
-      value={value}
-      onChange={e => {
-        onChange(e.target.value);
-      }}
-    />
+    <label>
+      Find contacts by name <br />
+      <input
+        value={value}
+        onChange={e => {
+          onChange(e.target.value);
+        }}
+      />
+    </label>
   );
 };
 export default Filter;

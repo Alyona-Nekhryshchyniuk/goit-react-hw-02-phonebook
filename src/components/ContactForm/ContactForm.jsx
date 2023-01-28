@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 class ContactForm extends Component {
   state = {
-    name: 'f',
-    number: 1,
+    name: '',
+    number: '',
   };
-  //   addContact = () => {};
+
   inputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -15,6 +15,7 @@ class ContactForm extends Component {
         onSubmit={e => {
           e.preventDefault();
           this.props.addContact(this.state);
+          this.setState({ name: '', number: '' });
         }}
       >
         <label>
