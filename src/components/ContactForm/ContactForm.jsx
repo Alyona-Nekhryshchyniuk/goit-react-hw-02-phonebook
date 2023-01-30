@@ -4,6 +4,7 @@ import { Form } from './Form.styled';
 import { Button } from '../Button.styled';
 import { Input } from '../Input.styled';
 import { Label } from './Label.styled';
+import { BsFillTelephonePlusFill } from 'react-icons/bs';
 
 class ContactForm extends Component {
   static propTypes = {
@@ -51,7 +52,10 @@ class ContactForm extends Component {
             onChange={this.inputChange}
           />
         </Label>
-        <Button type="submit">Add contacts</Button>
+        <Button type="submit">
+          {' '}
+          <BsFillTelephonePlusFill /> Add contacts
+        </Button>
       </Form>
     );
   }

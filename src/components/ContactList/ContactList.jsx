@@ -1,23 +1,25 @@
 import PropTypes from 'prop-types';
 import { Button } from '../Button.styled';
 import { List, ListItem } from './List.styled';
-import { MdOutlineContactPhone } from 'react-icons/md';
+import { RiContactsLine } from 'react-icons/ri';
 
 const ContactList = ({ contacts, deleteContact }) => {
   return (
     <>
-      <List icon={<MdOutlineContactPhone />}>
+      <List>
         {contacts.map(({ name, id, number }) => {
           return (
             name && (
               <ListItem key={id}>
-                {' '}
-                {name}: {number}
+                <div>
+                  <RiContactsLine /> {name}: {number}
+                </div>
                 <Button
                   onClick={() => {
                     deleteContact(id);
                   }}
                 >
+                  {' '}
                   Delete
                 </Button>
               </ListItem>

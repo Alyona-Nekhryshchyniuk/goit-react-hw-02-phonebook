@@ -1,12 +1,22 @@
 import styled from '@emotion/styled';
 
 export const List = styled.ul`
-  text-align: left;
-  list-style: ${props => `url(${props.icon})`};
-  padding: 0px 200px;
+  // list-style: ${props => `url(${props.icon})`};
+  list-style: none;
+  padding: 0px 240px;
 `;
 
 export const ListItem = styled.li`
   display: flex;
   justify-content: space-between;
+
+  & svg {
+    width: 27px;
+    height: 27px;
+    padding-right: 15px;
+  }
+  & div {
+    display: flex;
+    align-items: center;
+  }
 `;
