@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 export const List = styled.ul`
-  // list-style: ${props => `url(${props.icon})`};
   list-style: none;
   padding: 0px 240px;
 `;
