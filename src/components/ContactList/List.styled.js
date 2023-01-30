@@ -14,7 +14,7 @@ export const ListItem = styled.li`
     align-items: center;
 
     & > svg {
-      width: 27px;
+      width: 27 px;
       height: 27px;
       padding-right: 15px;
     }

@@ -25,7 +25,6 @@ const ContactList = ({ contacts, deleteContact }) => {
                       fill: '#ffee7d',
                       width: '18px',
                       height: '18px',
-                      width: '25px',
                     }}
                   />{' '}
                   Delete
