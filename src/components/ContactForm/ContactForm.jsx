@@ -22,6 +22,7 @@ class ContactForm extends Component {
   render() {
     return (
       <Form
+        color="#ffee7d"
         onSubmit={e => {
           e.preventDefault();
           this.props.addContact(this.state);

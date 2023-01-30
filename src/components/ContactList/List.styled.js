@@ -9,13 +9,14 @@ export const ListItem = styled.li`
   display: flex;
   justify-content: space-between;
 
-  & svg {
-    width: 27px;
-    height: 27px;
-    padding-right: 15px;
-  }
   & div {
     display: flex;
     align-items: center;
+
+    & > svg {
+      width: 27px;
+      height: 27px;
+      padding-right: 15px;
+    }
   }
 `;

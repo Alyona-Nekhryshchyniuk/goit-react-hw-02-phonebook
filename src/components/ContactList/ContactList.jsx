@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Button } from '../Button.styled';
 import { List, ListItem } from './List.styled';
-import { RiContactsLine } from 'react-icons/ri';
+import { RiContactsLine, RiDeleteBin6Line } from 'react-icons/ri';
 
 const ContactList = ({ contacts, deleteContact }) => {
   return (
@@ -12,7 +12,7 @@ const ContactList = ({ contacts, deleteContact }) => {
             name && (
               <ListItem key={id}>
                 <div>
-                  <RiContactsLine /> {name}: {number}
+                  <RiContactsLine color="color=#ffee7d" /> {name}: {number}
                 </div>
                 <Button
                   onClick={() => {
@@ -20,6 +20,14 @@ const ContactList = ({ contacts, deleteContact }) => {
                   }}
                 >
                   {' '}
+                  <RiDeleteBin6Line
+                    style={{
+                      fill: '#ffee7d',
+                      width: '18px',
+                      height: '18px',
+                      width: '25px',
+                    }}
+                  />{' '}
                   Delete
                 </Button>
               </ListItem>
